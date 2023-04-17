@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import ToDoList from './components/ToDoList'
+import Footer from './components/Footer'
+import Clock from './components/Clock'
+import Header from './components/Header'
 
 
 function App() {
@@ -7,7 +10,20 @@ function App() {
   return (
    
       <>
-      <ToDoList />
+        <header>
+          <Header />
+        </header>
+        <main>
+          <section>
+            <Clock />
+          </section>
+          <section>
+            <ToDoList />
+          </section>
+        </main>
+        <footer>
+          <Footer />
+        </footer>
       </>
   )
 }
