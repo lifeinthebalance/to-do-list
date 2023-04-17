@@ -15,7 +15,7 @@ const Clock = () => {
     }, [])
 
     return (
-        <article className="text-center max-w-[70%] mx-auto">
+        <article className="text-center mx-auto lg:text-2xl">
             {new Intl.DateTimeFormat('en-GB', {dateStyle: 'full', timeStyle: 'long', }).format(date)}
         </article>
     )

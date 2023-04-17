@@ -50,22 +50,23 @@ const ToDoList = () => {
       //////
       
     return <>
-        <ul>
+        <ul className="py-10">
             {tasks.map( task => {
                 const input = <input 
                 type="text"
+                title={task.value}
                 placeholder={tasks.length > 1 ? 'To-do' : 'Press "Enter" for new task'}
                 autoFocus={true}
                 value={task.value}
                 onChange={e => changeValue(task.id, e)}
                 onKeyDown={e => (e.key === 'Enter' && addTask())||((e.key === 'Backspace') && (task.value === '') && deleteTask(task.id))}
-                className='outline-0 bg-inherit border-none placeholder:opacity-40 sm:w-[40%]'
+                className='outline-0 bg-inherit border-none placeholder:opacity-40 max-w-screen-lg w-2/3 '
                 />
 
                 return <li key={task.id} className="flex justify-center items-center gap-2">
-                    <input type="checkbox"/>
+                    <input title="check" type="checkbox"/>
                     {input}
-                    <span>{<FiDelete size={20} className={tasks.length > 1 ? 'hover:cursor-pointer text-red-900' : 'text-transparent'} onClick={() => deleteTask(task.id)}/>}</span>
+                    <span>{<FiDelete title="delete" size={20} className={tasks.length > 1 ? 'hover:cursor-pointer text-red-900' : 'invisible'} onClick={() => deleteTask(task.id)}/>}</span>
                 </li>
             })}
         </ul>
